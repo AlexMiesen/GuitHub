@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
+#our Gems
+gem 'devise'
+
+#were already here
 
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
