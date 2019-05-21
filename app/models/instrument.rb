@@ -4,4 +4,5 @@ class Instrument < ApplicationRecord
 
   validates :name, presence: true
   validates :category, presence: true
+  validates :price_per_day, presence: true
 end
