@@ -1,5 +1,5 @@
 class InstrumentsController < ApplicationController
   def index
-    @instruments = Instrument.select(params[:category])
+    @instruments = Instrument.all
   end
 end
