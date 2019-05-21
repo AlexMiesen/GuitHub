@@ -1,18 +1,22 @@
-<h1>Instrument#show</h1>
-<div class="container">
-  <div class="instrument-displayed">
+<div class="instrument-wrapper">
+<div class="container ">
+  <div class="row">
+    <div class="col">
+      <div class="instrument-displayed">
     <h2> <%= @instrument.name %> </h2>
-    <div class="instrument-displayed-infos">
- <%= image_tag "https://kitt.lewagon.com/placeholder/users/sarahlafer", class: "avatar-bordered", alt: "avatar-bordered" %>
-      <ul>
-        <li> <%= @instrument.city %> </li>
-        <li> <%= @instrument.category %></li>
-        <li> <%= @instrument.description %></li>
-      </ul>
-  <%= link_to 'Book now', new_cocktail_path, class: "btn btn-primary"%>
-  </div>
-      <div class="instrument-pictured">
-        <%= image_tag instrument.photo %>
-      </div>
+ <%= cl_image_tag @instrument.user.avatar, class: "avatar-large", alt: "avatar-bordered" %>
+        <p i class="fas fa-map-marker-alt"> <%= @instrument.location %></p>
+        <p i class="fas fa-music"> <%= @instrument.category %></p>
+        <p i class="fas fa-comment-dots"> <%= @instrument.description %></p>
+    <div class="book-now-button">
+  <%= link_to 'Book Now!', new_instrument_booking_path(@instrument), class: "btn btn-primary"%>
     </div>
+    </div>
+  </div>
+    <div class="col">
+      <div class="instrument-pictured" style="background-image: url('<%= cl_image_path @instrument.photo, crop: :fill, height: 400%>')">
+
+      </div>
+  </div>
+</div>
 </div>
