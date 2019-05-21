@@ -1,0 +1,18 @@
+<h1>Instrument#show</h1>
+<div class="container">
+  <div class="instrument-displayed">
+    <h2> <%= @instrument.name %> </h2>
+    <div class="instrument-displayed-infos">
+ <%= image_tag "https://kitt.lewagon.com/placeholder/users/sarahlafer", class: "avatar-bordered", alt: "avatar-bordered" %>
+      <ul>
+        <li> <%= @instrument.city %> </li>
+        <li> <%= @instrument.category %></li>
+        <li> <%= @instrument.description %></li>
+      </ul>
+  <%= link_to 'Book now', new_cocktail_path, class: "btn btn-primary"%>
+  </div>
+      <div class="instrument-pictured">
+        <%= image_tag instrument.photo %>
+      </div>
+    </div>
+</div>

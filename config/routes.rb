@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'instruments/show'
   root to: 'pages#home'
   devise_for :users
 
