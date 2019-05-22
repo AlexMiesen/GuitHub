@@ -17,10 +17,12 @@ class InstrumentsController < ApplicationController
   end
 
   def new
-    @user = User.find(params["user_id"])
     @instrument = Instrument.new
   end
 
   def create
+    @instrument = Instrument.new # TODO HERE
+    @instrument.user = current_user
+    # HERE TOO
   end
 end
