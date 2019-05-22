@@ -1,9 +1,11 @@
 <div class="background">
+  <div class="container">
+    <h1 class="title-header">Dashboard</h1>
     <div class="d-flex mr-3 ml-3">
       <div class="dash-divider mt-5 p-2">
         <div class="dash-card dash-profile">
-          <%= cl_image_tag current_user.avatar, width: 100, height: 100, crop: :fill, class: 'avatar-large' %>
-          <div class="d-flex justify-content-between">
+          <div class="d-flex justify-content-between mb-3 mt-1">
+            <%= cl_image_tag current_user.avatar, width: 100, height: 100, crop: :fill, class: 'avatar-large' %>
             <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
             <i class="fas fa-edit"></i>
           </div>
@@ -16,26 +18,15 @@
         <div class="instrument-container container mt-5">
           <% if current_user.instruments %>
             <h2>Your instruments</h2>
-            <div class="row">
+            <%= link_to new_instrument_path do %>
+              <i class="fas fa-plus rotater"></i>
+            <% end %>
+            <div class="row justify-content-around">
               <% current_user.instruments.each do |instrument| %>
-                <div class="instrument-card col-6 p-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                   url('<%= cl_image_path instrument.photo, height: 300, width: 400, crop: :fill %>')">
-                   <%= link_to edit_instrument_path(instrument) do %>
-                     <div class="after">
-                      <div class="d-flex justify-content-around align-items-center">
-                       <p><%= instrument.name %></p>
-                       <i class="fas fa-edit"></i>
-                      </div>
-                    <% end %>
-                   </div>
-                </div>
+                  <div class="instrument-card mb-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                     url('<%= cl_image_path instrument.photo, height: 300, width: 400, crop: :fill %>')">
+                  </div>
                 <% end %>
-
-                <div class="instrument-card col-6 p-3">
-                  <%= link_to new_instrument_path do %>
-                    <i class="fas fa-plus fa-6x col-6 pt-3"></i>
-                  <% end %>
-                </div>
             <% end %>
           </div>
         </div>
@@ -46,7 +37,7 @@
         <% if current_user.rentals %>
           <% current_user.rentals.each do |rental| %>
             <div class="dash-card dash-booking col-12 p-3" >
-              <%= cl_image_tag rental.user.avatar, width: 100, height: 100, crop: :fill, class: 'avatar-large' %>
+
               <h4><%= rental.instrument.name %></h4>
               <div class="d-flex justify-content-between align-items-center">
                 <% if rental.status == "pending" %>
@@ -55,7 +46,7 @@
                     <button class="btn btn-danger btn-sm pl-3 pr-3">Reject</button>
                   </div>
                 <% end %>
-                <%= cl_image_tag rental.instrument.photo, height: 330, crop: :fill, class: 'booking-photo' %>
+                <%= cl_image_tag rental.user.avatar, width: 100, height: 100, crop: :fill, class: 'avatar-large' %>
                 <p>Renter: <strong><%= rental.user.first_name %> <%= rental.user.last_name %></strong></p>
               </div>
             </div>
@@ -70,17 +61,16 @@
         <% if current_user.bookings %>
           <% current_user.bookings.each do |booking| %>
             <div class="dash-card dash-booking col-12 p-3" >
-              <%= cl_image_tag booking.instrument.user.avatar, width: 100, height: 100, crop: :fill, class: 'avatar-large' %>
               <h4><%= booking.instrument.name %></h4>
               <div class="d-flex justify-content-between align-items-center">
                 <% if booking.status == "pending" %>
-                  <span class="badge badge-primary">Pending</span>
+                  <span class="badge badge-info">Pending</span>
                 <% elsif booking.status == "accepted" %>
                   <span class="badge badge-success">Accepted</span>
                 <% elsif booking.status == "rejected" %>
                   <span class="badge badge-danger">Rejected</span>
                 <% end %>
-                <%= cl_image_tag booking.instrument.photo, height: 330, crop: :fill, class: 'booking-photo' %>
+                <%= cl_image_tag booking.instrument.user.avatar, width: 100, height: 100, crop: :fill, class: 'avatar-large' %>
                 <p>Owner: <strong><%= booking.instrument.user.first_name %> <%= booking.instrument.user.last_name %></strong></p>
               </div>
             </div>
@@ -88,4 +78,5 @@
         <% end %>
       </div>
     </div>
+  </div>
 </div>
