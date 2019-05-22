@@ -1,8 +1,21 @@
+.background {
+  padding: 0px;
+  margin: 0px;
+  height: 100vh;
+  width: 100vw;
+  background-image: url('https://images.unsplash.com/photo-1506968430777-bf7784a87f23?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .dash-divider {
   width: 33%;
   height: 100%;
-  background-color: rgb(241,235,233);
-  margin: 16px;
+  background-color: rgba(241,235,233,0.5);
+  margin: 8px;
+  box-shadow: inset 0px 0px 8px rgba(0,0,0,0.2);
+  border-radius: 2px;
+  padding: 16px;
 }
 
 .dash-card {
@@ -29,12 +42,32 @@
 }
 
 .dash-booking {
-
+  .avatar-large {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+  }
+  .booking-photo {
+    height: 50px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .rental-photo {
+    margin-right: 30px;
+    height: 70px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  h3 {
+    padding-left: 45px;
+  }
+  div {
+    text-align: right;
+  }
 }
 
-.dash-rental {
-
-}
 
 .instrument-container {
   background-color: $our-grey;
@@ -51,12 +84,43 @@
 .instrument-card {
   width: 150px;
   height: 150px;
+  position: relative;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
 }
 
+.instrument-card .after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  color: #FFF;
+  a {
+    color: $our-grey;
+    &:hover {
+      text-decoration: none;
+      color: $our-grey;
+    }
+  }
+}
+
+.instrument-card:hover .after {
+  padding-top: 20px;
+  display: block;
+  background: rgba(0, 0, 0, .6);
+  text-decoration: none;
+}
+
+
 .fa-plus {
   color: $our-orange;
+}
+
+.booking-header {
+  margin: 12px;
+  text-align: center;
 }
