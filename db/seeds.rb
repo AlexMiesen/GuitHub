@@ -70,7 +70,7 @@ instrument_hash = [
   {
     name: "Meinl Kajon S-33",
     category: "percussion",
-    description: "A deep, woody sound, perfect for acoustiv gigs.",
+    description: "A deep, woody sound, perfect for acoustic gigs.",
     location: "Brighton",
     user: users[0],
     photo: File.open(Rails.root.join("db/fixtures/instruments/kajon.jpg")),
@@ -145,7 +145,7 @@ instrument_hash = [
     description: "Smooth as you like, the perfect horn for small to medium gigs.",
     location: "Birmingham",
     user: users[4],
-    photo: File.open(Rails.root.join("db/fixtures/instruments/tele.jpg")),
+    photo: File.open(Rails.root.join("db/fixtures/instruments/trumpet1.jpg")),
     price_per_day: 18
   },
     {

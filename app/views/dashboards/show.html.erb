@@ -46,23 +46,24 @@
       <% if @user.rentals %>
         <% @user.rentals.each do |rental| %>
           <div class="dash-card dash-booking col-12 p-3" >
-            <div class="d-flex justify-content-between">
-              <div class="d-flex flex-column justify-content-between">
-                <h4><%= rental.instrument.name %></h4>
-                <% if rental.status == "pending" %>
-                  <span class="badge badge-primary">Pending</span>
-                <% elsif rental.status == "accepted" %>
-                  <span class="badge badge-success">Accepted</span>
-                <% elsif rental.status == "rejected" %>
-                  <span class="badge badge-danger">Rejected</span>
-                <% end %>
-              </div>
-              <%= cl_image_tag rental.instrument.photo, height: 330, crop: :fill, class: 'rental-photo' %>
+            <%= cl_image_tag rental.instrument.user.avatar, width: 100, height: 100, crop: :fill, class: 'avatar-large' %>
+            <h4><%= rental.instrument.name %></h4>
+            <div class="d-flex justify-content-between align-items-center">
+              <% if rental.status == "pending" %>
+                <div>
+                  <button class="btn-success btn-sm">Accept</button>
+                  <button class="btn-warning btn-sm">Reject</button>
+                </div>
+              <% end %>
+              <%= cl_image_tag rental.instrument.photo, height: 330, crop: :fill, class: 'booking-photo' %>
+              <p>Renter: <strong><%= rental.instrument.user.first_name %> <%= rental.instrument.user.last_name %></strong></p>
             </div>
           </div>
         <% end %>
       <% end %>
     </div>
+
+
 
     <div class="dash-divider mt-5 p-2">
       <h2 class="booking-header">Your bookings</h2>
