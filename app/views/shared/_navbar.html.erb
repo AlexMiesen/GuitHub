@@ -1,0 +1,46 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <a class="navbar-brand" href="/">
+    <img src="https://banner2.kisspng.com/20180802/pok/kisspng-guitar-hero-rock-logo-bass-guitar-guitar-icon-learn4joy-5b6335ef089df8.4889557715332285270353.jpg" />
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <% if user_signed_in? %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <%= link_to "Home", root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item dropdown">
+          <% if current_user.avatar.present? %>
+            <img class="avatar avatar-navbar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= cl_image_path current_user.avatar %>" />
+          <% else %>
+            <img class="avatar avatar-navbar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= image_path 'avatar-blank.jpg' %>" />
+          <% end %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Add an instrument", new_instrument_path, class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+      </ul>
+    </div>
+  <% else %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <%= link_to "Home", root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Log in", new_user_session_path, class: "nav-link"  %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sign up", new_user_registration_path, class: "nav-link"  %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+</div>

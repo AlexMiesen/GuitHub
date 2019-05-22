@@ -1,3 +1,4 @@
+puts "Cleaning database..."
 Booking.destroy_all
 Instrument.destroy_all
 User.destroy_all
@@ -52,7 +53,6 @@ user_hash = [
 ]
 
 puts "Creating Users..."
-
 users = User.create!(user_hash)
 
 
@@ -70,7 +70,7 @@ instrument_hash = [
   {
     name: "Meinl Kajon S-33",
     category: "percussion",
-    description: "A deep, woody sound, perfect for acoustiv gigs.",
+    description: "A deep, woody sound, perfect for acoustic gigs.",
     location: "Brighton",
     user: users[0],
     photo: File.open(Rails.root.join("db/fixtures/instruments/kajon.jpg")),
@@ -210,3 +210,5 @@ bookings_hash = [
 puts "Creating Bookings..."
 
 Booking.create!(bookings_hash)
+
+puts "Finished!"

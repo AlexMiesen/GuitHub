@@ -1,0 +1,19 @@
+<body>
+  <div class="index-banner">
+    <h1>Matching results</h1>
+  </div>
+  <div class="index-cards-grid">
+   <% @instruments.each do |instrument| %>
+   <div class="card-trip" >
+    <img src="<%= cl_image_path instrument.photo, width: 1200, crop: :fill %>">
+    <div class="card-trip-infos">
+      <div class="card-trip-instrument-name">
+        <h2><%= instrument.name %></h2>
+        <p><%= instrument.price_per_day %>€/day</p>
+      </div>
+      <h2> <%= link_to "Details", instrument_path(instrument), class: "btn btn-warning btn-instrument-index"%> </h2>
+    </div>
+  </div>
+  <% end %>
+</div>
+</body>
