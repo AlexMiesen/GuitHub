@@ -1,1 +1,14 @@
 // Specific CSS for your home-page
+.display-hp {
+  display: flex;
+  justify-content: space-around;
+}
+
+#title-hp {
+  font-size: 50px;
+  padding: 50px 0;
+}
+
+#subtitle-hp {
+  padding: 0 10px;
+}
