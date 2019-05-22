@@ -1,3 +1,12 @@
-<h1>Add an Instrument (feature coming soon!) </h1>
+<h1> Add an Instrument (feature coming soon!) </h1>
 
-
+ <div class="form-new-instrument ">
+      <h2>Fill in your instrument details</h2>
+      <%= simple_form_for("instruments", url: instruments_path, method: :get) do |f| %>
+        <%= f.input :location %>
+        <%= f.input :category, collection: ["guitars", "keyboards", "brass", "percussion", "orchestral"] %>
+        <%= f.input :description %>
+        <%= f.input :price %>
+        <%= f.submit 'Add Instrument', class: "btn btn-warning btn-form-hp" %>
+      <% end %>
+    </div>
