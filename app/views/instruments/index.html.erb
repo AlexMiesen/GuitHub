@@ -1,13 +1,13 @@
 <body>
   <div class="index-banner">
-    <h1>Matching searches</h1>
+    <h1>Matching results</h1>
   </div>
   <div class="index-cards-grid">
    <% @instruments.each do |instrument| %>
    <div class="card-trip" >
     <img src="<%= cl_image_path instrument.photo, width: 1200, crop: :fill %>">
     <div class="card-trip-infos">
-      <div>
+      <div class="card-trip-instrument-name">
         <h2><%= instrument.name %></h2>
         <p><%= instrument.price_per_day %>€/day</p>
       </div>
