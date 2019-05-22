@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  position: relative;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -18,4 +19,11 @@
 
 .avatar-navbar {
   margin-left: 10px;
+}
+
+.logo-name {
+  position: absolute;
+  font-family: $logo-font;
+  left: 65px;
+  font-size: 20px;
 }
