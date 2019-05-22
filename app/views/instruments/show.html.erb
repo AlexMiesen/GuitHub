@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col">
       <div class="instrument-displayed">
-    <h2> <%= @instrument.name %> </h2>
+    <h1> <%= @instrument.name %> </h1>
  <%= cl_image_tag @instrument.user.avatar, class: "avatar-large", alt: "avatar-bordered" %>
         <p i class="fas fa-map-marker-alt"> <%= @instrument.location %></p>
         <p i class="fas fa-music"> <%= @instrument.category %></p>

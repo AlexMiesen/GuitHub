@@ -1,2 +1,16 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner banner-hp" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1525201548942-d8732f6617a0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
+  <div class="container display-hp">
+    <div class="form-hp">
+      <h2>Rent an instrument anywhere in the world</h2>
+      <%= simple_form_for("instruments", url: instruments_path, method: :get) do |f| %>
+        <%= f.input :location %>
+        <%= f.input :category %>
+        <%= f.submit 'Search', class: "btn btn-warning btn-form-hp" %>
+      <% end %>
+    </div>
+    <div>
+      <h1 id="title-hp"><span class="banner-typed-text"></span></h1>
+      <p id="subtitle-hp">Find an instrument wherever you are!</p>
+    </div>
+  </div>
+</div>
