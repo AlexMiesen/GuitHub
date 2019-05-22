@@ -1,3 +1,4 @@
+puts "Cleaning database..."
 Booking.destroy_all
 Instrument.destroy_all
 User.destroy_all
@@ -52,7 +53,6 @@ user_hash = [
 ]
 
 puts "Creating Users..."
-
 users = User.create!(user_hash)
 
 
@@ -210,3 +210,5 @@ bookings_hash = [
 puts "Creating Bookings..."
 
 Booking.create!(bookings_hash)
+
+puts "Finished!"
