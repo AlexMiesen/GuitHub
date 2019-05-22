@@ -1,0 +1,52 @@
+.instrument-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.instrument-displayed {
+  // min-height: 400px;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  padding: 30px;
+  color: $our-brown;
+  background: $our-grey;
+
+  .content-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  }
+
+  img {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+}
+ h1 {
+text-align: center;
+ }
+
+ p {
+  font-size: 20px;
+  text-align: center;
+
+ }
+
+.book-now-button {
+
+}
+}
+
+
+.instrument-pictured {
+ box-shadow: 0 0 15px rgba(0,0,0,0.2);
+ border-radius: 4px;
+ height: 400px;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+
+}

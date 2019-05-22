@@ -70,7 +70,7 @@ instrument_hash = [
   {
     name: "Meinl Kajon S-33",
     category: "percussion",
-    description: "A deep, woody sound, perfect for acoustiv gigs.",
+    description: "A deep, woody sound, perfect for acoustic gigs.",
     location: "Brighton",
     user: users[0],
     photo: File.open(Rails.root.join("db/fixtures/instruments/kajon.jpg")),
