@@ -46,7 +46,7 @@
         <% if current_user.rentals %>
           <% current_user.rentals.each do |rental| %>
             <div class="dash-card dash-booking col-12 p-3" >
-              <%= cl_image_tag rental.instrument.user.avatar, width: 100, height: 100, crop: :fill, class: 'avatar-large' %>
+              <%= cl_image_tag rental.user.avatar, width: 100, height: 100, crop: :fill, class: 'avatar-large' %>
               <h4><%= rental.instrument.name %></h4>
               <div class="d-flex justify-content-between align-items-center">
                 <% if rental.status == "pending" %>
@@ -56,7 +56,7 @@
                   </div>
                 <% end %>
                 <%= cl_image_tag rental.instrument.photo, height: 330, crop: :fill, class: 'booking-photo' %>
-                <p>Renter: <strong><%= rental.instrument.user.first_name %> <%= rental.instrument.user.last_name %></strong></p>
+                <p>Renter: <strong><%= rental.user.first_name %> <%= rental.user.last_name %></strong></p>
               </div>
             </div>
           <% end %>
