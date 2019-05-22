@@ -1,22 +1,23 @@
 <div class="instrument-wrapper">
-<div class="container ">
-  <div class="row">
-    <div class="col">
-      <div class="instrument-displayed">
-    <h1> <%= @instrument.name %> </h1>
- <%= cl_image_tag @instrument.user.avatar, class: "avatar-large", alt: "avatar-bordered" %>
-        <p i class="fas fa-map-marker-alt"> <%= @instrument.location %></p>
-        <p i class="fas fa-music"> <%= @instrument.category %></p>
-        <p i class="fas fa-comment-dots"> <%= @instrument.description %></p>
-    <div class="book-now-button">
-  <%= link_to 'Book Now!', new_instrument_booking_path(@instrument), class: "btn btn-primary"%>
-    </div>
-    </div>
-  </div>
-    <div class="col">
-      <div class="instrument-pictured" style="background-image: url('<%= cl_image_path @instrument.photo, crop: :fill, height: 400%>')">
-
+  <div class="container ">
+    <div class="row">
+      <div class="col">
+        <div class="instrument-displayed">
+          <h1> <%= @instrument.name %> </h1>
+          <%= cl_image_tag @instrument.user.avatar, class: "avatar-large", alt: "avatar-bordered" %>
+          <h2 i class="fas fa-map-marker-alt"> <%= @instrument.location %></h2>
+          <br>
+          <h2 i class="fas fa-music"> <%= @instrument.category %></h2>
+          <h3 i class="fas fa-comment-dots"> <%= @instrument.description %></h3>
+          <div class="book-now-button">
+            <%= link_to 'Book Now!', new_instrument_booking_path(@instrument), class: "btn btn-warning btn-form-hp"%>
+          </div>
+        </div>
       </div>
+      <div class="col">
+        <div class="instrument-pictured" style="background-image: url('<%= cl_image_path @instrument.photo, crop: :fill, height: 400%>')">
+
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-</div>
