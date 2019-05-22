@@ -53,6 +53,13 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
+  .rental-photo {
+    margin-right: 30px;
+    height: 70px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
   h3 {
     padding-left: 45px;
   }
@@ -61,9 +68,6 @@
   }
 }
 
-.dash-rental {
-
-}
 
 .instrument-container {
   background-color: $our-grey;
