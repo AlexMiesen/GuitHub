@@ -4,13 +4,13 @@
       <h2>Rent an instrument anywhere in the world</h2>
       <%= simple_form_for("instruments", url: instruments_path, method: :get) do |f| %>
         <%= f.input :location %>
-        <%= f.input :category %>
+        <%= f.input :category, collection: ["guitars", "keyboards", "brass", "percussion", "orchestral"] %>
         <%= f.submit 'Search', class: "btn btn-warning btn-form-hp" %>
       <% end %>
     </div>
     <div>
       <h1 id="title-hp"><span class="banner-typed-text"></span></h1>
-      <p id="subtitle-hp">Find an instrument wherever you are!</p>
+      <p id="subtitle-hp">Find an instrument wherever you are with GuitHub!</p>
     </div>
   </div>
 </div>
