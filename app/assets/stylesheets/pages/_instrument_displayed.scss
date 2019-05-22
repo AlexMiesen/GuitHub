@@ -5,13 +5,20 @@
 }
 
 .instrument-displayed {
-  height: 400px;
+  // min-height: 400px;
   position: relative;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 4px;
   padding: 30px;
   color: $our-brown;
   background: $our-grey;
+
+  .content-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  }
 
   img {
   position: absolute;
@@ -29,9 +36,7 @@ text-align: center;
  }
 
 .book-now-button {
-  position: absolute;
-  right: 215px;
-  top: 300px;
+
 }
 }
 
