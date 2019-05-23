@@ -42,7 +42,7 @@ class InstrumentsController < ApplicationController
   end
 
   def create
-    @instrument = Instrument.new(instrument_params)
+    @instrument = Instrument.new(instruments_params)
     @instrument.user = current_user
 
     if @instrument.save
