@@ -1,6 +1,5 @@
 class InstrumentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
-
   before_action :set_instruments, only: [:show, :edit, :update]
 
   def show
@@ -8,11 +7,13 @@ class InstrumentsController < ApplicationController
 
   def index
     @instruments = Instrument.all
+
     if params[:query].present?
       sql_query = "location ILIKE :query OR category ILIKE :query OR description ILIKE :query OR name ILIKE :query"
       @instruments = Instrument.where(sql_query, query: "%#{params[:query]}%")
+    end
 
-    elsif params[:instruments].present?
+    if params[:instruments].present?
       if params[:instruments][:location].present?
         @instruments = @instruments.where(location: params[:instruments][:location])
       end
@@ -21,8 +22,17 @@ class InstrumentsController < ApplicationController
         @instruments = @instruments.where(category: params[:instruments][:category])
       end
     end
-  end
 
+
+    @instruments = @instruments.where.not(latitude: nil, longitude: nil)
+
+    @markers = @instruments.map do |instrument|
+      {
+        lat: instrument.latitude,
+        lng: instrument.longitude
+      }
+    end
+  end
 
   def edit
   end
@@ -42,13 +52,28 @@ class InstrumentsController < ApplicationController
   end
 
   def create
-    @instrument = Instrument.new(instrument_params)
+    @instrument = Instrument.new(instruments_params)
     @instrument.user = current_user
 
     if @instrument.save
       redirect_to instruments_path(@instrument)
     else
       render :new
+    end
+  end
+
+  def edit
+    redirect_to dashboard_path if current_user != @instrument.user
+  end
+
+  def update
+
+    @instrument.update(instruments_params)
+
+    if @instrument.update(instruments_params)
+      redirect_to dashboard_path
+    else
+      render :edit
     end
   end
 
