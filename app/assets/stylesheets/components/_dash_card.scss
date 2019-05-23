@@ -37,6 +37,9 @@
 
 .dash-profile {
   i {
+    position: absolute;
+    right: 10px;
+    top: 7px;
     margin-top: 10px;
   }
   h3 {
@@ -104,9 +107,44 @@
   text-align: center;
 }
 
-.plus-card {
-  width: 150px;
-  height: 150px;
+
+.section {
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #000000;
+}
+
+.section:hover .overlay {
+  opacity: 0.5;
+}
+
+.overlay-text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   text-align: center;
 }
 
@@ -122,15 +160,50 @@
 }
 
 .fa-plus {
-  color: $our-orange;
+  color: $our-red;
 }
 
-.fa-times {
-  color: $our-orange;
+.fa-trash-alt {
+  position: absolute;
+  right: 40px;
+  top: 0px;
+  color: $our-red;
+}
+
+.fa-trash-alt:hover {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 .fa-edit {
-  color: $our-orange;
+  color: $our-red;
+}
+
+.fa-edit:hover {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
 
 .booking-header {
@@ -139,15 +212,15 @@
   font-family: $logo-font;
 }
 
-
 .card-product {
+  border-radius: 2px;
   margin-top: 12px;
   overflow: hidden;
   height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
-  align-items: center;
+  align-items: space-between;
 }
 
 .card-product img {
@@ -159,8 +232,9 @@
 .card-product h2 {
   font-size: 16px;
   font-weight: bold;
-  padding-right: 16px;
+  padding: 10px 10px 10px 2px;
   margin: 0;
+  width: 100%
 }
 
 .card-product p {
@@ -171,12 +245,8 @@
   margin-top: 8px;
 }
 
-.card-product .card-product-infos {
-  position: relative;
-  padding: 16px;
-  i {
-    position: absolute;
-    right: 10px;
-    top: 14px;
-  }
+.card-details {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
