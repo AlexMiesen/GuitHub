@@ -1,5 +1,8 @@
-<div class="banner banner-registration" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "registration.jpg" %>');">
-  <div class="form form-sign-up">
+<!-- <div class="banner banner-registration" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%#= image_path "registration.jpg" %>');">
+  <div class="form-instrument container-instrument-form">
+ -->
+    <div class="banner banner-registration" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "registration.jpg" %>');">
+  <div class="form-instrument container-instrument-form">
     <h1 class="h1-form">Create your account</h1>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
