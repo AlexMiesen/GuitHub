@@ -32,6 +32,21 @@ class InstrumentsController < ApplicationController
     end
   end
 
+  def new
+    @instrument = Instrument.new
+  end
+
+  def create
+    @instrument = Instrument.new(instrument_params)
+    @instrument.user = current_user
+
+    if @instrument.save
+      redirect_to instruments_path(@instrument)
+    else
+      render :new
+    end
+  end
+
   private
 
   def instruments_params
