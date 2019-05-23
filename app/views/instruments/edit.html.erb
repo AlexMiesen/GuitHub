@@ -1,9 +1,6 @@
 <div class="banner banner-registration" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "registration.jpg" %>');">
-  <div class="form form-edit">
-    <h1>Update your instrument details</h1>
-    <p class="btn-back"><%= link_to "← Back", dashboard_path %></p>
-
+  <div class="form-instrument container-instrument-form">
+    <h1 class="h1-form">Update your instrument details</h1>
     <%= render 'form', instrument: @instrument %>
   </div>
-</div>
 
