@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   # AS BOTH
   resource :dashboard, only: [:show]
 
+  resource :profiles, only: [:edit, :update]
+
   # AS OWNER
   resources :bookings, only: [:destroy] do
     member do
