@@ -1,7 +1,7 @@
 <div class="banner banner-hp" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "homepage.jpg" %>');">
   <div class="container display-hp">
-    <div class="form-hp">
-      <h2>Rent an instrument anywhere in the world</h2>
+    <div class="form form-hp">
+      <h1 class="h1-form">Rent an instrument anywhere in the world</h1>
       <%= simple_form_for("instruments", url: instruments_path, method: :get) do |f| %>
         <%= f.input :location %>
         <%= f.input :category, collection: ["guitars", "keyboards", "brass", "percussion", "orchestral"] %>
