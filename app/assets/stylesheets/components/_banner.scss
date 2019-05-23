@@ -26,7 +26,7 @@
 }
 
 .banner-hp {
-  height: 100vh;
+  min-height: 100vh;
 
   .typed-cursor {
     opacity: 0;
@@ -34,6 +34,6 @@
 }
 
 .banner-registration {
-  height: 100vh;
+  min-height: 100vh;
   padding: 60px;
 }
