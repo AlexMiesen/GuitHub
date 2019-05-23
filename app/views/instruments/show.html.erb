@@ -23,7 +23,7 @@
         <%= simple_form_for [@instrument, @booking] do |f| %>
         <%= f.input :startdate %>
         <%= f.input :enddate %>
-        <%= link_to 'Book Now!', new_instrument_booking_path(@instrument), class: "btn btn-warning btn-form-hp"%>
+        <%= link_to 'Book Now!', dashboard_path(@current_user), class: "btn btn-warning btn-form-hp"%>
         <% end %>
     </div>
   </div>
