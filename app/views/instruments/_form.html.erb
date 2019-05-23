@@ -1,0 +1,9 @@
+<%= simple_form_for(@instrument) do |f| %>
+<%= f.input :name %>
+<%= f.input :category %>
+<%= f.input :description %>
+<%= f.input :location %>
+<%= f.input :price_per_day %>
+<%= f.input :photo_cache, as: :hidden %>
+<%= f.submit 'Save', class: "btn-save" %>
+<% end %>
