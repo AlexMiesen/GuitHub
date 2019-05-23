@@ -21,8 +21,19 @@ class InstrumentsController < ApplicationController
   end
 
   def create
-    @instrument = Instrument.new # TODO HERE
+    @instrument = Instrument.new(instrument_params)
     @instrument.user = current_user
-    # HERE TOO
+
+    if @instrument.save
+      redirect_to instruments_path(@instrument)
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def instrument_params
+    params.require(:instrument).permit(:name, :location, :category, :photo, :description, :price_per_day)
   end
 end
