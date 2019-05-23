@@ -1,0 +1,44 @@
+            <div class="dash-card dash-booking col-12 p-3" >
+              <h4><%= booking.instrument.name %></h4>
+              <div class="d-flex justify-content-between align-items-center">
+                <% if booking.status == "pending" %>
+                  <span class="badge badge-info">Pending</span>
+                <% elsif booking.status == "accepted" %>
+                  <span class="badge badge-success">Accepted</span>
+                <% elsif booking.status == "declined" %>
+                  <span class="badge badge-danger">Declined</span>
+                  <i class="fa fa-times" aria-hidden="true"></i>
+                <% end %>
+                <%= cl_image_tag booking.instrument.user.avatar, width: 100, height: 100, crop: :fill, class: 'avatar-large' %>
+                <p>Owner: <strong><%= booking.instrument.user.first_name %> <%= booking.instrument.user.last_name %></strong></p>
+              </div>
+            </div>
+
+
+
+<%= cl_image_tag booking.instrument.user.avatar, width: 500, height: 500, crop: :fill, class: 'avatar-small' %>
+
+
+  <% if rental.status != "declined" %>
+              <div class="dash-card dash-booking col-12 p-3" >
+                <h4><%= rental.instrument.name %></h4>
+                <div class="d-flex justify-content-between align-items-center">
+                  <% if rental.status == "pending" %>
+                    <div class="d-flex">
+                      <%= link_to accept_booking_path(rental), method: :patch do %>
+                        <button class="btn btn-warning btn-sm pl-3 pr-3 mr-1">Accept</button>
+                      <% end %>
+                      <%= link_to decline_booking_path(rental), method: :patch do %>
+                        <button class="btn btn-danger btn-sm pl-3 pr-3">Decline</button>
+                      <% end %>
+                    </div>
+                  <% else %>
+                    <% if rental.status == "accepted" %>
+                      <span class="badge badge-success">Accepted</span>
+                    <% end %>
+                  <% end %>
+                  <%= cl_image_tag rental.user.avatar, width: 100, height: 100, crop: :fill, class: 'avatar-large' %>
+                  <p>Renter: <strong><%= rental.user.first_name %> <%= rental.user.last_name %></strong></p>
+                </div>
+              </div>
+            <% end %>
