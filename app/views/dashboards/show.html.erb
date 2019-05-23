@@ -36,18 +36,26 @@
         <h2 class="booking-header">Your rentals</h2>
         <% if current_user.rentals %>
           <% current_user.rentals.each do |rental| %>
-            <div class="dash-card dash-booking col-12 p-3" >
-
-              <h4><%= rental.instrument.name %></h4>
-              <div class="d-flex justify-content-between align-items-center">
-                <% if rental.status == "pending" %>
-                  <div class="d-flex">
-                    <button class="btn btn-warning btn-sm pl-3 pr-3 mr-1">Accept</button>
-                    <button class="btn btn-danger btn-sm pl-3 pr-3">Reject</button>
+             <div class="card-product">
+              <%= cl_image_tag rental.instrument.photo, width: 500, height: 500, crop: :fill %>
+              <div class="card-product-infos">
+                <h2><%= rental.instrument.name %></h2>
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <p><%= rental.instrument.user.first_name %> <%= rental.instrument.user.last_name %></p>
+                    <p><strong>€ <%= rental.total_price %></strong></p>
                   </div>
-                <% end %>
-                <%= cl_image_tag rental.user.avatar, width: 100, height: 100, crop: :fill, class: 'avatar-large' %>
-                <p>Renter: <strong><%= rental.user.first_name %> <%= rental.user.last_name %></strong></p>
+                  <div>
+                    <% if rental.status == "pending" %>
+                      <%= link_to accept_booking_path(rental), method: :patch do %>
+                        <span class="badge badge-info">Accept</span>
+                      <% end %>
+                      <%= link_to decline_booking_path(rental), method: :patch do %>
+                      <span class="badge badge-success">Decline</span>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
               </div>
             </div>
           <% end %>
@@ -60,18 +68,28 @@
         <h2 class="booking-header">Your bookings</h2>
         <% if current_user.bookings %>
           <% current_user.bookings.each do |booking| %>
-            <div class="dash-card dash-booking col-12 p-3" >
-              <h4><%= booking.instrument.name %></h4>
-              <div class="d-flex justify-content-between align-items-center">
-                <% if booking.status == "pending" %>
-                  <span class="badge badge-info">Pending</span>
-                <% elsif booking.status == "accepted" %>
-                  <span class="badge badge-success">Accepted</span>
-                <% elsif booking.status == "rejected" %>
-                  <span class="badge badge-danger">Rejected</span>
-                <% end %>
-                <%= cl_image_tag booking.instrument.user.avatar, width: 100, height: 100, crop: :fill, class: 'avatar-large' %>
-                <p>Owner: <strong><%= booking.instrument.user.first_name %> <%= booking.instrument.user.last_name %></strong></p>
+            <div class="card-product">
+              <%= cl_image_tag booking.instrument.photo, width: 500, height: 500, crop: :fill %>
+              <div class="card-product-infos">
+                <h2><%= booking.instrument.name %></h2>
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <p><%= booking.instrument.user.first_name %> <%= booking.instrument.user.last_name %></p>
+                    <p><strong>€ <%= booking.total_price %></strong></p>
+                  </div>
+                  <div>
+                    <% if booking.status == "pending" %>
+                     <span class="badge badge-info">Pending</span>
+                    <% elsif booking.status == "accepted" %>
+                      <span class="badge badge-success">Accepted</span>
+                    <% elsif booking.status == "declined" %>
+                      <%= link_to booking_path(booking), method: :delete do %>
+                        <i class="fa fa-times rotater" aria-hidden="true"></i>
+                        <span class="badge badge-danger">Declined</span>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
               </div>
             </div>
           <% end %>
