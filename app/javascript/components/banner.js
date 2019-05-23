@@ -1,12 +1,10 @@
 import Typed from 'typed.js';
 
-// const subHeading = document.querySelector('.title-hp');
+const subHeading = document.querySelector('.title-hp');
 
-// const fade = () => {
-//   $(subHeading).fadeIn(5000)
-// }
-
-
+const fade = () => {
+  $(subHeading).fadeIn(5000)
+}
 
 const loadDynamicBannerText = () => {
   new Typed('.banner-typed-text', {
@@ -17,3 +15,4 @@ const loadDynamicBannerText = () => {
 }
 
 export { loadDynamicBannerText };
+
