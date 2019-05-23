@@ -1,9 +1,7 @@
 import Typed from 'typed.js';
 
-const subHeading = document.querySelector('.title-hp');
-
-const fade = () => {
-  $(subHeading).fadeIn(5000)
+const timedFade = () => {
+  $("#subtitle-hp").delay(700).fadeTo(2200, 0.7);
 }
 
 const loadDynamicBannerText = () => {
@@ -14,5 +12,5 @@ const loadDynamicBannerText = () => {
   });
 }
 
-export { loadDynamicBannerText };
+export { loadDynamicBannerText, timedFade };
 
