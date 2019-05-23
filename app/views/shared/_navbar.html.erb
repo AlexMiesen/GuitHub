@@ -3,6 +3,14 @@
     <img src='<%= image_path "guithub-logo.jpg" %>' />
   </a>
   <p class="logo-name">GuitHub</p>
+
+  <div class="searchbar">
+  <%= form_tag(instruments_path, method: :get, class: "form-inline left") do %>
+    <i class="fas fa-search" aria-hidden="true"></i>
+    <%= text_field_tag("query", params[:query], class: "form-control form-control-sm ml-3 w-90") %>
+  <% end %>
+  </div>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
