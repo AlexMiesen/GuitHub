@@ -1,6 +1,5 @@
 class InstrumentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
-
   before_action :set_instruments, only: [:show, :edit, :update]
 
   def show
@@ -22,7 +21,6 @@ class InstrumentsController < ApplicationController
       end
     end
   end
-
 
   def edit
   end
@@ -49,6 +47,21 @@ class InstrumentsController < ApplicationController
       redirect_to instruments_path(@instrument)
     else
       render :new
+    end
+  end
+
+  def edit
+    redirect_to dashboard_path if current_user != @instrument.user
+  end
+
+  def update
+
+    @instrument.update(instruments_params)
+
+    if @instrument.update(instruments_params)
+      redirect_to dashboard_path
+    else
+      render :edit
     end
   end
 
