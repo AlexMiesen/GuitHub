@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resource :dashboard, only: [:show]
 
   # AS OWNER
-  resources :bookings, only: [] do
+  resources :bookings, only: [:destroy] do
     member do
       patch :accept
       patch :decline
