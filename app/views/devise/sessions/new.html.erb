@@ -1,4 +1,7 @@
-<h2>Log in to GuitHub</h2>
+<div class="banner banner-registration" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "registration.jpg" %>');">
+  <div class="form-sign-up">
+<h2>Log in</h2>
+
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
@@ -13,7 +16,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+    <%= f.button :submit, "Log in", class: "btn btn-warning btn-form-resgistration" %>
   </div>
 <% end %>
 

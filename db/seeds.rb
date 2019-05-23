@@ -145,7 +145,7 @@ instrument_hash = [
     description: "Smooth as you like, the perfect horn for small to medium gigs.",
     location: "Birmingham",
     user: users[4],
-    photo: File.open(Rails.root.join("db/fixtures/instruments/tele.jpg")),
+    photo: File.open(Rails.root.join("db/fixtures/instruments/trumpet1.jpg")),
     price_per_day: 18
   },
     {

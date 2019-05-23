@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   # AS RENTER: index, show / AS OWNER: new, create
-  resources :instruments, only: [:index, :show, :new, :create] do
+  resources :instruments, only: [:index, :show, :new, :create, :edit, :update] do
     # AS RENTER
     resources :bookings, only: [:new, :create]
   end
