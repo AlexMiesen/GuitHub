@@ -1,5 +1,5 @@
 <div class="banner banner-registration" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixlib=rb-1.2.1&auto=format&fit=crop&w=3450&q=80');">
-  <div class="form-edit up">
+  <div class="form-edit">
     <h2>Update your details</h2>
 
     <%= simple_form_for @user, url: profiles_path do |f| %>
@@ -20,6 +20,10 @@
             required: true,
             autofocus: true,
             input_html: { autocomplete: "email" }%>
+      <%= f.input :city,
+            required: true,
+            autofocus: true,
+            input_html: { autocomplete: "city" }%>
       <%= f.input :description, as: :text,
             required: true,
             autofocus: true,
@@ -31,3 +35,4 @@
     </div>
     <% end %>
   </div>
+</div>
