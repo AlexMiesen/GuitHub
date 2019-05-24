@@ -13,7 +13,7 @@
   h2 {
     font-style: $headers-font;
     font-size: 25px;
-    height: 70px;
+    height: auto;
     font-weight: 500;
   }
 
@@ -32,14 +32,12 @@
   }
 
   .price-detail{
-    position: absolute;
-    bottom: 280px;
-    right: 30px;
+    text-align: right;
   }
 
   .calendar-all {
     text-align: center;
-    margin-top: 70px;
+    margin-top: 10px;
   }
 
   .calendar-booking{
@@ -53,3 +51,59 @@
 
 }
 
+.instrument-owner {
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 10px;
+
+  .avatar-owner{
+    margin-right: 10px;
+  }
+}
+
+.instrument-rental {
+  display: flex;
+  align-items: center;
+
+  .details-rental{
+    margin-right: 13px;
+  }
+}
+
+.instrument-line {
+    border-top: 1px solid #8F877D;
+    padding-top: 5px;
+  }
+
+.price-rental {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  p {
+    color: $our-orange;
+    opacity: 1;
+  }
+}
+
+.btn-edit-instrument {
+  padding: 5px 39px;
+  margin: 10px;
+  font-size: 13px;
+}
+
+.btn-dashboard {
+  padding: 5px 17px;
+  margin: 10px;
+  font-size: 13px;
+
+}
+
+.button-edit-dashbord {
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+}
+
+.current-user {
+  height: 70px;
+}
