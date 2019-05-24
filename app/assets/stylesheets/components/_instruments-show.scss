@@ -6,14 +6,15 @@
 }
 
 .instrument-detail {
-  height: 400px;
+  height: 550px;
   width: 650px;
   position: relative;
 
   h2 {
     font-style: $headers-font;
-    font-size: 20px;
+    font-size: 25px;
     height: 70px;
+    font-weight: 500;
   }
 
   img {
@@ -32,7 +33,23 @@
 
   .price-detail{
     position: absolute;
-    bottom: 50px;
-    right: 263px;
+    bottom: 280px;
+    right: 30px;
   }
+
+  .calendar-all {
+    text-align: center;
+    margin-top: 70px;
+  }
+
+  .calendar-booking{
+    position: relative;
+  }
+
+  .btn-forms{
+    position: absolute;
+    right: 0;
+  }
+
 }
+

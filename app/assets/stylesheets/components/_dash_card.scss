@@ -164,8 +164,8 @@
 
 .fa-trash-alt {
   position: absolute;
-  right: 40px;
-  top: 10px;
+  right: 45px;
+  bottom: 30px;
   color: $our-red;
   transition: all .2s ease-in-out;
 }
@@ -266,6 +266,10 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+
+.my-badge {
+  width: 75px;
 }
 
 .faded {
