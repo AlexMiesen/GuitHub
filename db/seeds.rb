@@ -17,20 +17,20 @@ user_hash = [
     first_name: "Carlton",
     last_name: "Banks",
     email: "carlton@home.com",
-    description: "Multi-instrumentalist in London. A good variety of instruments for hire",
+    description: "Multi-instrumentalist in Amsterdam. A good variety of instruments for hire",
     avatar: File.open(Rails.root.join("db/fixtures/users/me.jpg")),
     password: "password",
     password_confirmation: "password",
-    city: "London"
+    city: "Amsterdam"
   },{
-    first_name: "Mike",
-    last_name: "Rodgers",
-    email: "mike@home.com",
-    description: "Guitarist in London. Looking to try out some new instruments!",
-    avatar: File.open(Rails.root.join("db/fixtures/users/Mike.jpeg")),
+    first_name: "Axel",
+    last_name: "Kalland",
+    email: "axel@home.com",
+    description: "Multi-instrumentalist in Amsterdam/Helsinki!",
+    avatar: File.open(Rails.root.join("db/fixtures/users/axel.jpg")),
     password: "password",
     password_confirmation: "password",
-    city: "London"
+    city: "Amsterdam"
   },{
     first_name: "Veronika",
     last_name: "Jessop",
@@ -49,6 +49,26 @@ user_hash = [
     password: "password",
     password_confirmation: "password",
     city: "Birmingham"
+  },
+  {
+    first_name: "Toon",
+    last_name: "Remi",
+    email: "toon@home.com",
+    description: "Working drummer, originally farmer from the Kimito Island.",
+    avatar: File.open(Rails.root.join("db/fixtures/users/toon.jpg")),
+    password: "password",
+    password_confirmation: "password",
+    city: "Amsterdam"
+  },
+  {
+    first_name: "Nikke",
+    last_name: "Nyfiken",
+    email: "nikke@home.com",
+    description: "I love pianos and keyboards and squash!",
+    avatar: File.open(Rails.root.join("db/fixtures/users/nikke.jpg")),
+    password: "password",
+    password_confirmation: "password",
+    city: "Amsterdam"
   }
 ]
 
@@ -62,16 +82,16 @@ instrument_hash = [
     name: "Afroton AD-M03 Mas­ter­class Djembe",
     category: "percussion",
     description: "Really great sound, and very loud.",
-    location: "Brighton",
+    location: "Oxford, UK",
     user: users[0],
-    photo: File.open(Rails.root.join("db/fixtures/instruments/djembe.jpeg")),
+    photo: File.open(Rails.root.join("db/fixtures/instruments/djembe.jpg")),
     price_per_day: 15
   },
   {
     name: "Meinl Kajon S-33",
     category: "percussion",
     description: "A deep, woody sound, perfect for acoustic gigs.",
-    location: "Brighton",
+    location: "Brighton, UK",
     user: users[0],
     photo: File.open(Rails.root.join("db/fixtures/instruments/kajon.jpg")),
     price_per_day: 10
@@ -80,7 +100,7 @@ instrument_hash = [
     name: "Roland TP-455 Keyboard 88-key",
     category: "keyboards",
     description: "Full of features, you know what you're getting with Roland!",
-    location: "London",
+    location: "Jordaan, Amsterdam",
     user: users[1],
     photo: File.open(Rails.root.join("db/fixtures/instruments/keboard3.jpg")),
     price_per_day: 18
@@ -89,7 +109,7 @@ instrument_hash = [
     name: "Nord Compact Stage Piano 88-key",
     category: "keyboards",
     description: "The industry standard, amazing workhorse, never lets you down",
-    location: "London",
+    location: "De Pijp, Amsterdam",
     user: users[1],
     photo: File.open(Rails.root.join("db/fixtures/instruments/keyboard1.jpg")),
     price_per_day: 20
@@ -98,34 +118,44 @@ instrument_hash = [
     name: "Moog Supernaturel Synth",
     category: "keyboards",
     description: "Classic Moog. Enough said!",
-    location: "London",
+    location: "Amsterdam Centraal",
     user: users[2],
     photo: File.open(Rails.root.join("db/fixtures/instruments/keyboard2.jpg")),
     price_per_day: 12
   },
       {
-    name: "Les Paul Standard",
-    category: "guitars",
-    description: "Perfect sounding, beautiful looking Les Paul with brand new pick ups",
-    location: "London",
+    name: "Korg Kronos",
+    category: "keyboards",
+    description: "Amazing synth, there are no limits with the Kronos!!",
+    location: "Nokiantie 5, Helsinki, Finland",
     user: users[2],
-    photo: File.open(Rails.root.join("db/fixtures/instruments/lespaul.jpeg")),
+    photo: File.open(Rails.root.join("db/fixtures/instruments/kronos.jpg")),
     price_per_day: 20
   },
     {
-    name: "Palmer Sax Premium",
+    name: "King Zephyr 1952 sax",
     category: "brass",
-    description: "Deep, pretty sound from this classic horn.",
-    location: "Newcastle",
-    user: users[3],
-    photo: File.open(Rails.root.join("db/fixtures/instruments/sax1.jpg")),
+    description: "Deep, unbelievable sound from this classic horn. Cannonball Adderley played this horn!",
+    location: "Amsterdam Noord",
+    user: users[2],
+    photo: File.open(Rails.root.join("db/fixtures/instruments/sopranosax.jpg")),
+    price_per_day: 12
+  },
+
+  {
+    name: "Steinway Baby Grand Piano",
+    category: "keyboards",
+    description: "Deep, beautiful classic sound from this 1950's German masterpiece. No going back to Yamaha!",
+    location: "Kolmas Linja 17, Helsinki, Finland",
+    user: users[2],
+    photo: File.open(Rails.root.join("db/fixtures/instruments/steinway_baby.jpg")),
     price_per_day: 12
   },
     {
     name: "Fender Telecaster 50s Butterscotch",
     category: "guitars",
     description: "Tone you could cut glass with, that classic tele sound that everyone loves.",
-    location: "Newcastle",
+    location: "Newcastle, UK",
     user: users[3],
     photo: File.open(Rails.root.join("db/fixtures/instruments/tele.jpg")),
     price_per_day: 18
@@ -134,38 +164,71 @@ instrument_hash = [
     name: "Stradivarius 1888 Violin",
     category: "orchestral",
     description: "Rich and smooth sound from this antique instrument.",
-    location: "Newcastle",
+    location: "Cambridge, UK",
     user: users[3],
-    photo: File.open(Rails.root.join("db/fixtures/instruments/violin1.jpg")),
+    photo: File.open(Rails.root.join("db/fixtures/instruments/violin3.jpg")),
     price_per_day: 40
   },
     {
     name: "Dave Harman Trumpet P-34",
     category: "brass",
     description: "Smooth as you like, the perfect horn for small to medium gigs.",
-    location: "Birmingham",
+    location: "Birmingham, UK",
     user: users[4],
-    photo: File.open(Rails.root.join("db/fixtures/instruments/trumpet1.jpg")),
+    photo: File.open(Rails.root.join("db/fixtures/instruments/trumpet4.jpg")),
     price_per_day: 18
   },
     {
-    name: "Grover Classic Sax",
+    name: "Selmer MK VI Tenor Sax",
     category: "brass",
-    description: "Edgy tone and deep low notes.",
-    location: "Birmingham",
+    description: "Edgy tone and deep low notes on this classic masterpiece.",
+    location: "Luton, UK",
     user: users[4],
-    photo: File.open(Rails.root.join("db/fixtures/instruments/sax2.jpeg")),
+    photo: File.open(Rails.root.join("db/fixtures/instruments/selmer.jpg")),
     price_per_day: 16
   },
     {
     name: "Ludwig Black Magic Snare",
     category: "percussion",
     description: "This classic Ludwig will give you that classic punch you need to cut through the band.",
-    location: "Birmingham",
+    location: "Manchester, UK",
     user: users[4],
     photo: File.open(Rails.root.join("db/fixtures/instruments/ludwigblackmagic.jpg")),
     price_per_day: 14
   },
+   {
+    name: "Drumset",
+    category: "percussion",
+    description: "Classic Drumset with Little Christmas snare... Located in my sauna.",
+    location: "Finnuddsvägen 210, Kimito, Finland",
+    user: users[5],
+    photo: File.open(Rails.root.join("db/fixtures/instruments/toons_drums.jpg")),
+    price_per_day: 14
+  }, {
+    name: "Guitar, good for Rock n roll!",
+    category: "guitars",
+    description: "This is a really nice guitar! Good to piss off the neigbors..",
+    location: "Nieuwmarkt, Amsterdam",
+    user: users[5],
+    photo: File.open(Rails.root.join("db/fixtures/instruments/guitar4.jpg")),
+    price_per_day: 50
+  }, {
+    name: "Fender Rhodes",
+    category: "keyboards",
+    description: "The best of the best. What can I say? All the rhodes lead to rhodes! hahahah!",
+    location: "Tölö Torg, Helsinki",
+    user: users[6],
+    photo: File.open(Rails.root.join("db/fixtures/instruments/rhodes.jpg")),
+    price_per_day: 40
+  }, {
+    name: "Microkorg",
+    category: "keyboards",
+    description: "It's not really mine but you can still rent it. The owner won't know. Hahahhaha! Located in Pete's bus...",
+    location: "Konala, Helsinki, Finland",
+    user: users[6],
+    photo: File.open(Rails.root.join("db/fixtures/instruments/microkorg.jpg")),
+    price_per_day: 30
+  }
 ]
 
 puts "Creating Instruments..."
@@ -180,30 +243,40 @@ bookings_hash = [
     user: users[4],
     total_price: 30,
     no_days: 2,
+    startdate: Date.parse("23/05/2019"),
+    enddate: Date.parse("25/05/2019")
   },
   {
     instrument: instruments[1],
     user: users[3],
     total_price: 30,
     no_days: 3,
+    startdate: Date.parse("22/05/2019"),
+    enddate: Date.parse("26/05/2019")
   },
   {
     instrument: instruments[2],
     user: users[2],
     total_price: 18,
     no_days: 1,
+    startdate: Date.parse("25/05/2019"),
+    enddate: Date.parse("26/05/2019")
   },
   {
     instrument: instruments[5],
     user: users[1],
     total_price: 40,
     no_days: 2,
+    startdate: Date.parse("24/05/2019"),
+    enddate: Date.parse("26/05/2019")
   },
   {
     instrument: instruments[3],
     user: users[0],
     total_price: 60,
     no_days: 3,
+    startdate: Date.parse("23/05/2019"),
+    enddate: Date.parse("26/05/2019")
   },
 ]
 
