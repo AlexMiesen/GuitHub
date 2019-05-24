@@ -11,17 +11,18 @@
         <p><i class="fas fa-comment-dots"> </i><br> <%= @instrument.description %></p>
         <div class="price-detail">
           <p><strong> <%= @instrument.price_per_day%> €/day</strong></p>
-          
-          </div>
-          <%= simple_form_for [@instrument, @booking] do |f| %>
-            <%= f.input :startdate %>
-            <%= f.input :enddate %>
-            <%= f.submit 'Book now!', class: "btn btn-warning btn-form-hp" %>
-          <% end %>
-      
         </div>
-        <div class="book-now-button">
-          <%= link_to 'Book Now!', new_instrument_booking_path(@instrument), class: "btn btn-warning btn-form-hp"%>
+
+        <div class="calendar-all">
+          <div class="calendar-booking">
+            <%= simple_form_for [@instrument, @booking] do |f| %>
+              <%= f.input :startdate, label: "Start date" %>
+              <%= f.input :enddate, label: "End date" %>
+              <%= f.submit 'Book now!', class: "btn btn-warning btn-forms" %>
+            <% end %>
+          </div>
+        </div>
+
         </div>
       </div>
     </div>
