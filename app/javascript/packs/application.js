@@ -1,5 +1,5 @@
 import "bootstrap";
-import { loadDynamicBannerText, timedFade } from '../components/banner.js';
+import { loadDynamicBannerText, loadDynamicInstrumentText, timedFade } from '../components/banner.js';
 
 if (document.querySelector('.banner-typed-text') !== null) {
   loadDynamicBannerText();
