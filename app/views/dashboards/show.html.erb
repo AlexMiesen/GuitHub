@@ -71,7 +71,7 @@
                         <span class="badge badge-danger">Decline</span>
                         <% end %>
                       <% elsif rental.status == "accepted" %>
-                        <span class="badge badge-success">Accepted</span>
+                        <span class="badge badge-success faded">Accepted</span>
                       <% end %>
                     </div>
                   </div>
@@ -101,14 +101,14 @@
                   </div>
                   <div class="d-flex flex-column justify-content-end align-items-end pr-3" style="position: relative">
                     <% if booking.status == "pending" %>
-                     <span class="badge badge-light">Pending</span>
+                     <span class="badge badge-info faded">Pending</span>
                     <% elsif booking.status == "accepted" %>
-                      <span class="badge badge-success">Accepted</span>
+                      <span class="badge badge-success faded">Accepted</span>
                     <% elsif booking.status == "declined" %>
                       <%= link_to booking_path(booking), method: :delete do %>
                         <i class="far fa-trash-alt"></i>
                       <% end %>
-                      <span class="badge badge-danger">Declined</span>
+                      <span class="badge badge-danger faded">Declined</span>
                     <% end %>
                   </div>
                 </div>
