@@ -3,6 +3,7 @@ class InstrumentsController < ApplicationController
   before_action :set_instruments, only: [:show, :edit, :update]
 
   def show
+    @booking = Booking.new
   end
 
   def index
