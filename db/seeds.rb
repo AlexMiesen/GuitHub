@@ -82,7 +82,7 @@ instrument_hash = [
     name: "Afroton AD-M03 Mas­ter­class Djembe",
     category: "percussion",
     description: "Really great sound, and very loud.",
-    location: "Oxford, England",
+    location: "Oxford, UK",
     user: users[0],
     photo: File.open(Rails.root.join("db/fixtures/instruments/djembe.jpg")),
     price_per_day: 15
@@ -91,7 +91,7 @@ instrument_hash = [
     name: "Meinl Kajon S-33",
     category: "percussion",
     description: "A deep, woody sound, perfect for acoustic gigs.",
-    location: "Brighton, England",
+    location: "Brighton, UK",
     user: users[0],
     photo: File.open(Rails.root.join("db/fixtures/instruments/kajon.jpg")),
     price_per_day: 10
@@ -155,7 +155,7 @@ instrument_hash = [
     name: "Fender Telecaster 50s Butterscotch",
     category: "guitars",
     description: "Tone you could cut glass with, that classic tele sound that everyone loves.",
-    location: "Newcastle, England",
+    location: "Newcastle, UK",
     user: users[3],
     photo: File.open(Rails.root.join("db/fixtures/instruments/tele.jpg")),
     price_per_day: 18
@@ -164,7 +164,7 @@ instrument_hash = [
     name: "Stradivarius 1888 Violin",
     category: "orchestral",
     description: "Rich and smooth sound from this antique instrument.",
-    location: "Cambridge, England",
+    location: "Cambridge, UK",
     user: users[3],
     photo: File.open(Rails.root.join("db/fixtures/instruments/violin3.jpg")),
     price_per_day: 40
@@ -173,7 +173,7 @@ instrument_hash = [
     name: "Dave Harman Trumpet P-34",
     category: "brass",
     description: "Smooth as you like, the perfect horn for small to medium gigs.",
-    location: "Birmingham",
+    location: "Birmingham, UK",
     user: users[4],
     photo: File.open(Rails.root.join("db/fixtures/instruments/trumpet4.jpg")),
     price_per_day: 18
@@ -182,7 +182,7 @@ instrument_hash = [
     name: "Selmer MK VI Tenor Sax",
     category: "brass",
     description: "Edgy tone and deep low notes on this classic masterpiece.",
-    location: "Birmingham",
+    location: "Luton, UK",
     user: users[4],
     photo: File.open(Rails.root.join("db/fixtures/instruments/selmer.jpg")),
     price_per_day: 16
@@ -191,7 +191,7 @@ instrument_hash = [
     name: "Ludwig Black Magic Snare",
     category: "percussion",
     description: "This classic Ludwig will give you that classic punch you need to cut through the band.",
-    location: "Birmingham",
+    location: "Manchester, UK",
     user: users[4],
     photo: File.open(Rails.root.join("db/fixtures/instruments/ludwigblackmagic.jpg")),
     price_per_day: 14
@@ -199,7 +199,7 @@ instrument_hash = [
    {
     name: "Drumset",
     category: "percussion",
-    description: "Classic Drumset will give you that classic punch you need to cut through the band. Located in my sauna",
+    description: "Classic Drumset with Little Christmas snare... Located in my sauna.",
     location: "Finnuddsvägen 210, Kimito, Finland",
     user: users[5],
     photo: File.open(Rails.root.join("db/fixtures/instruments/toons_drums.jpg")),
@@ -207,7 +207,7 @@ instrument_hash = [
   }, {
     name: "Guitar, good for Rock n roll!",
     category: "guitars",
-    description: "This is a really nice guitar!",
+    description: "This is a really nice guitar! Good to piss off the neigbors..",
     location: "Nieuwmarkt, Amsterdam",
     user: users[5],
     photo: File.open(Rails.root.join("db/fixtures/instruments/guitar4.jpg")),
@@ -221,10 +221,10 @@ instrument_hash = [
     photo: File.open(Rails.root.join("db/fixtures/instruments/rhodes.jpg")),
     price_per_day: 40
   }, {
-    name: "Microkorg XL",
+    name: "Microkorg",
     category: "keyboards",
-    description: "It's not really mine but you can still rent it. The owner won't know. Located in Pete's bus..",
-    location: "Konala, Helsinki",
+    description: "It's not really mine but you can still rent it. The owner won't know. Hahahhaha! Located in Pete's bus...",
+    location: "Konala, Helsinki, Finland",
     user: users[6],
     photo: File.open(Rails.root.join("db/fixtures/instruments/microkorg.jpg")),
     price_per_day: 30
@@ -243,30 +243,40 @@ bookings_hash = [
     user: users[4],
     total_price: 30,
     no_days: 2,
+    startdate: Date.parse("23/05/2019"),
+    enddate: Date.parse("25/05/2019")
   },
   {
     instrument: instruments[1],
     user: users[3],
     total_price: 30,
     no_days: 3,
+    startdate: Date.parse("22/05/2019"),
+    enddate: Date.parse("26/05/2019")
   },
   {
     instrument: instruments[2],
     user: users[2],
     total_price: 18,
     no_days: 1,
+    startdate: Date.parse("25/05/2019"),
+    enddate: Date.parse("26/05/2019")
   },
   {
     instrument: instruments[5],
     user: users[1],
     total_price: 40,
     no_days: 2,
+    startdate: Date.parse("24/05/2019"),
+    enddate: Date.parse("26/05/2019")
   },
   {
     instrument: instruments[3],
     user: users[0],
     total_price: 60,
     no_days: 3,
+    startdate: Date.parse("23/05/2019"),
+    enddate: Date.parse("26/05/2019")
   },
 ]
 
