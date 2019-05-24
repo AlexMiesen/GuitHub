@@ -28,12 +28,16 @@
   }
 
   .card-product-infos {
-    padding: 20px 30px;
+    padding: 30px;
+  }
+
+  .price-detail{
+    text-align: right;
   }
 
   .calendar-all {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
   }
 
   .calendar-booking{
@@ -49,8 +53,7 @@
 
 .instrument-owner {
   display: flex;
-  align-items: center;
-  border-bottom: 1px solid #8F877D;
+  align-items: flex-end;
   padding-bottom: 10px;
 
   .avatar-owner{
@@ -67,6 +70,11 @@
   }
 }
 
+.instrument-line {
+    border-top: 1px solid #8F877D;
+    padding-top: 5px;
+  }
+
 .price-rental {
   display: flex;
   align-items: center;
@@ -77,3 +85,25 @@
   }
 }
 
+.btn-edit-instrument {
+  padding: 5px 39px;
+  margin: 10px;
+  font-size: 13px;
+}
+
+.btn-dashboard {
+  padding: 5px 17px;
+  margin: 10px;
+  font-size: 13px;
+
+}
+
+.button-edit-dashbord {
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+}
+
+.current-user {
+  height: 70px;
+}

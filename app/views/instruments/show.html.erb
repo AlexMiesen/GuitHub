@@ -2,15 +2,34 @@
   <div class="container ">
     <div class="card-product instrument-detail">
       <img src="<%= cl_image_path @instrument.photo, crop: :fill, height: 400 %>">
+
       <div class="card-product-infos">
+        <% if current_user == @instrument.user %>
+          <div class="current-user"></div>
+        <% end %>
+
         <h2 class="instrument-detail"><%= @instrument.name %></h2>
-        <div class="instrument-owner">
-          <img src="<%= @instrument.user.avatar %>" alt="owner" class="avatar-small avatar-owner">
-          <p><%= @instrument.user.first_name %> <%= @instrument.user.last_name %></p>
-        </div>
-        <div class="instrument-rental">
+        <% if current_user != @instrument.user %>
+          <div class="instrument-owner">
+            <img src="<%= @instrument.user.avatar %>" alt="owner" class="avatar-small avatar-owner">
+            <p><%= @instrument.user.first_name %> <%= @instrument.user.last_name %></p>
+          </div>
+          <% end %>
+
+        <div class="instrument-rental instrument-line">
           <p class="details-rental"><i class="fas fa-music"></i></p>
           <p><%= @instrument.category.capitalize %></p>
+
+        <div class="instrument-rental">
+          <p class="details-rental"><i class="fas fa-map-marked-alt"></i>
+          <p><%= @instrument.location.capitalize %></p>
+        </div>
+        <div class="instrument-rental">
+          <p class="details-rental"><i class="fas fa-comment-dots"></i>
+          <p><%= @instrument.description %></p>
+        </div>
+        <div class="price-rental">
+          <p class="details-rental price-detail"><strong> <%= @instrument.price_per_day%> €/day</strong></p>
         </div>
         <div class="instrument-rental">
           <p class="details-rental"><i class="fas fa-map-marked-alt"></i>
@@ -24,21 +43,24 @@
           <p class="details-rental price-detail"><strong> <%= @instrument.price_per_day%> €/day</strong></p>
         </div>
 
-        <div class="calendar-all">
-          <div class="calendar-booking">
-            <%= simple_form_for [@instrument, @booking] do |f| %>
-              <%= f.input :startdate, label: "Start date" %>
-              <%= f.input :enddate, label: "End date" %>
-              <%= f.submit 'Book now!', class: "btn btn-warning btn-forms" %>
-            <% end %>
+        <% if current_user != @instrument.user %>
+          <div class="calendar-all">
+            <div class="calendar-booking">
+              <%= simple_form_for [@instrument, @booking] do |f| %>
+                <%= f.input :startdate, label: "Start date" %>
+                <%= f.input :enddate, label: "End date" %>
+                <%= f.submit 'Book now!', class: "btn btn-warning btn-forms" %>
+              <% end %>
+            </div>
           </div>
-        </div>
-
+        <% else %>
+          <div class="button-edit-dashbord">
+            <%= link_to "Edit", edit_instrument_path, class: "btn btn-warning btn-edit-instrument" %> <br>
+            <%= link_to "Dashboard", dashboard_path, class: "btn btn-warning btn-dashboard" %>
+          <% end %>
+          </div>
         </div>
       </div>
     </div>
-
   </div>
-
-
 </div>
