@@ -29,13 +29,12 @@
             <div class="row justify-content-around">
               <% current_user.instruments.each do |instrument| %>
                 <!-- overlaid -->
-                <%= link_to edit_instrument_path(instrument) do %>
+                <%= link_to instrument_path(instrument) do %>
                   <div class="instrument-card mb-2">
                     <div class="section">
                       <%= cl_image_tag instrument.photo, height: 150, width: 150, crop: :fill, class: 'image'%>
-                      <div class="overlay d-flex flex-column justify-content-between">
+                      <div class="overlay d-flex flex-column justify-content-around">
                         <p><%= instrument.name %></p>
-                        <p>Click to edit</p>
                       </div>
                     </div>
                   </div>
