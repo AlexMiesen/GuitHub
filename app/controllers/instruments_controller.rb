@@ -16,14 +16,14 @@ class InstrumentsController < ApplicationController
 
     if params[:instruments].present?
       if params[:instruments][:location].present?
-        @instruments = @instruments.where(location: params[:instruments][:location])
+        sql_query = "location ILIKE :query"
+        @instruments = @instruments.where(sql_query, query: "%#{params[:instruments][:location]}%")
       end
 
       if params[:instruments][:category].present?
         @instruments = @instruments.where(category: params[:instruments][:category])
       end
     end
-
 
     @instruments = @instruments.where.not(latitude: nil, longitude: nil)
 
