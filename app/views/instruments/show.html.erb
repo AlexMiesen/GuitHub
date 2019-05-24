@@ -5,11 +5,20 @@
       <div class="card-product-infos">
         <h2 class="instrument-detail"><%= @instrument.name %></h2>
 
+
         <p><i class="fas fa-music"> </i> <%= @instrument.category.capitalize %></p>
         <p><i class="fas fa-map-marked-alt"> </i> <%= @instrument.location.capitalize %></p>
         <p><i class="fas fa-comment-dots"> </i><br> <%= @instrument.description %></p>
         <div class="price-detail">
           <p><strong> <%= @instrument.price_per_day%> €/day</strong></p>
+          
+          </div>
+          <%= simple_form_for [@instrument, @booking] do |f| %>
+            <%= f.input :startdate %>
+            <%= f.input :enddate %>
+            <%= f.submit 'Book now!', class: "btn btn-warning btn-form-hp" %>
+          <% end %>
+      
         </div>
         <div class="book-now-button">
           <%= link_to 'Book Now!', new_instrument_booking_path(@instrument), class: "btn btn-warning btn-form-hp"%>
@@ -18,4 +27,6 @@
     </div>
 
   </div>
+
+
 </div>
