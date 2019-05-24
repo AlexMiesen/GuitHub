@@ -42,6 +42,31 @@
   }
 }
 
+.form-edit {
+  background-color: white;
+  width: 400px;
+  height: 650px;
+  padding: 30px;
+  border-radius: 3px;
+  color: $our-brown;
+  margin: auto;
+  position: relative;
+
+  h2 {
+    padding: 30px 0;
+  }
+
+  .btn-form-resgistration {
+    position: absolute;
+    right: 30px;
+    bottom: 40px;
+    padding: 5px 20px;
+  }
+
+  .btn-form-resgistration.signup {
+    bottom: 20px;
+  }
+}
 
 .form-instrument {
   background-color: white;

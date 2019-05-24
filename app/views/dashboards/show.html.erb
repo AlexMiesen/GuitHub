@@ -2,12 +2,17 @@
   <div class="container">
     <h1 class="title-header">Dashboard</h1>
     <div class="d-flex mr-3 ml-3">
+
+      <!-- Left column -->
+
       <div class="dash-divider mt-5 p-2">
         <div class="dash-card dash-profile">
           <div class="d-flex justify-content-between mb-3 mt-1">
             <%= cl_image_tag current_user.avatar, width: 100, height: 100, crop: :fill, class: 'avatar-large' %>
-            <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
-            <i class="fas fa-edit"></i>
+            <h3 class="mr-3"><%= current_user.first_name %> <%= current_user.last_name %></h3>
+            <%= link_to edit_profiles_path do %>
+              <i class="fas fa-edit"></i>
+            <% end %>
           </div>
           <p><%= current_user.description %></p>
           <div class="d-flex justify-content-end mr-2">
@@ -23,70 +28,91 @@
             <% end %>
             <div class="row justify-content-around">
               <% current_user.instruments.each do |instrument| %>
-                  <div class="instrument-card mb-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                     url('<%= cl_image_path instrument.photo, height: 300, width: 400, crop: :fill %>')">
+                <!-- overlaid -->
+                <%= link_to edit_instrument_path(instrument) do %>
+                  <div class="instrument-card mb-2">
+                    <div class="section">
+                      <%= cl_image_tag instrument.photo, height: 150, width: 150, crop: :fill, class: 'image'%>
+                      <div class="overlay d-flex flex-column justify-content-between">
+                        <p><%= instrument.name %></p>
+                        <p>Click to edit</p>
+                      </div>
+                    </div>
                   </div>
                 <% end %>
+              <% end %>
             <% end %>
           </div>
         </div>
       </div>
 
+      <!-- Middle column -->
+
       <div class="dash-divider mt-5 p-2">
         <h2 class="booking-header">Your rentals</h2>
         <% if current_user.rentals %>
           <% current_user.rentals.each do |rental| %>
-             <div class="card-product">
-              <%= cl_image_tag rental.instrument.photo, width: 500, height: 500, crop: :fill %>
-              <div class="card-product-infos">
-                <h2><%= rental.instrument.name %></h2>
-                <div class="d-flex justify-content-between">
-                  <div>
-                    <p><%= rental.instrument.user.first_name %> <%= rental.instrument.user.last_name %></p>
-                    <p><strong>€ <%= rental.total_price %></strong></p>
+              <% if rental.status != "declined" %>
+               <div class="card-product">
+                <%= cl_image_tag rental.instrument.photo, width: 500, height: 500, crop: :fill %>
+                <div class="flex-column card-details">
+                  <div class="d-flex align-items-center" style="height: 100%">
+                    <h2><%= rental.instrument.name %></h2>
                   </div>
-                  <div>
-                    <% if rental.status == "pending" %>
-                      <%= link_to accept_booking_path(rental), method: :patch do %>
-                        <span class="badge badge-info">Accept</span>
+                  <div class="d-flex justify-content-between mb-3">
+                    <div>
+                      <p><%= rental.user.first_name %> <%= rental.user.last_name %></p>
+                      <p><strong>€ <%= rental.total_price %></strong></p>
+                    </div>
+                    <div class="d-flex flex-column justify-content-end align-items-end pr-3">
+                      <% if rental.status == "pending" %>
+                        <%= link_to accept_booking_path(rental), method: :patch do %>
+                          <span class="badge badge-warning">Accept</span>
+                        <% end %>
+                        <%= link_to decline_booking_path(rental), method: :patch do %>
+                        <span class="badge badge-danger">Decline</span>
+                        <% end %>
+                      <% elsif rental.status == "accepted" %>
+                        <span class="badge badge-success faded">Accepted</span>
                       <% end %>
-                      <%= link_to decline_booking_path(rental), method: :patch do %>
-                      <span class="badge badge-success">Decline</span>
-                      <% end %>
-                    <% end %>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
         <% end %>
       </div>
 
-
+      <!-- Right column -->
 
       <div class="dash-divider mt-5 p-2">
         <h2 class="booking-header">Your bookings</h2>
-        <% if current_user.bookings %>
+        <% if current_user.rentals %>
           <% current_user.bookings.each do |booking| %>
-            <div class="card-product">
+
+              <!-- left image -->
+             <div class="card-product">
               <%= cl_image_tag booking.instrument.photo, width: 500, height: 500, crop: :fill %>
-              <div class="card-product-infos">
-                <h2><%= booking.instrument.name %></h2>
-                <div class="d-flex justify-content-between">
+              <div class="flex-column card-details">
+                <div class="d-flex align-items-center" style="height: 100%">
+                  <h2><%= booking.instrument.name %></h2>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
                   <div>
                     <p><%= booking.instrument.user.first_name %> <%= booking.instrument.user.last_name %></p>
                     <p><strong>€ <%= booking.total_price %></strong></p>
                   </div>
-                  <div>
+                  <div class="d-flex flex-column justify-content-end align-items-end pr-3" style="position: relative">
                     <% if booking.status == "pending" %>
-                     <span class="badge badge-info">Pending</span>
+                     <span class="badge badge-info faded">Pending</span>
                     <% elsif booking.status == "accepted" %>
-                      <span class="badge badge-success">Accepted</span>
+                      <span class="badge badge-success faded">Accepted</span>
                     <% elsif booking.status == "declined" %>
                       <%= link_to booking_path(booking), method: :delete do %>
-                        <i class="fa fa-times rotater" aria-hidden="true"></i>
-                        <span class="badge badge-danger">Declined</span>
+                        <i class="far fa-trash-alt"></i>
                       <% end %>
+                      <span class="badge badge-danger faded">Declined</span>
                     <% end %>
                   </div>
                 </div>

@@ -3,6 +3,8 @@ class InstrumentsController < ApplicationController
   before_action :set_instruments, only: [:show, :edit, :update]
 
   def show
+    @booking = Booking.new
+    @markers = [{lat: @instrument.latitude, lng: @instrument.longitude}]
   end
 
   def index
@@ -15,14 +17,14 @@ class InstrumentsController < ApplicationController
 
     if params[:instruments].present?
       if params[:instruments][:location].present?
-        @instruments = @instruments.where(location: params[:instruments][:location])
+        sql_query = "location ILIKE :query"
+        @instruments = @instruments.where(sql_query, query: "%#{params[:instruments][:location]}%")
       end
 
       if params[:instruments][:category].present?
         @instruments = @instruments.where(category: params[:instruments][:category])
       end
     end
-
 
     @instruments = @instruments.where.not(latitude: nil, longitude: nil)
 
@@ -56,7 +58,7 @@ class InstrumentsController < ApplicationController
     @instrument.user = current_user
 
     if @instrument.save
-      redirect_to instruments_path(@instrument)
+      redirect_to instrument_path(@instrument)
     else
       render :new
     end

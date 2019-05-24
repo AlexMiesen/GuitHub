@@ -1,7 +1,5 @@
 import "bootstrap";
-import { loadDynamicBannerText } from '../components/banner.js';
-import { myFunc } from '../components/dashboard.js';
-myFunc();
+import { loadDynamicBannerText, timedFade } from '../components/banner.js';
 
 if (document.querySelector('.banner-typed-text') !== null) {
   loadDynamicBannerText();
@@ -10,3 +8,4 @@ if (document.querySelector('.banner-typed-text') !== null) {
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
 initMapbox();
+timedFade();
