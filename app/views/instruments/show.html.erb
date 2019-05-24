@@ -4,13 +4,24 @@
       <img src="<%= cl_image_path @instrument.photo, crop: :fill, height: 400 %>">
       <div class="card-product-infos">
         <h2 class="instrument-detail"><%= @instrument.name %></h2>
-
-
-        <p><i class="fas fa-music"> </i> <%= @instrument.category.capitalize %></p>
-        <p><i class="fas fa-map-marked-alt"> </i> <%= @instrument.location.capitalize %></p>
-        <p><i class="fas fa-comment-dots"> </i><br> <%= @instrument.description %></p>
-        <div class="price-detail">
-          <p><strong> <%= @instrument.price_per_day%> €/day</strong></p>
+        <div class="instrument-owner">
+          <img src="<%= @instrument.user.avatar %>" alt="owner" class="avatar-small avatar-owner">
+          <p><%= @instrument.user.first_name %> <%= @instrument.user.last_name %></p>
+        </div>
+        <div class="instrument-rental">
+          <p class="details-rental"><i class="fas fa-music"></i></p>
+          <p><%= @instrument.category.capitalize %></p>
+        </div>
+        <div class="instrument-rental">
+          <p class="details-rental"><i class="fas fa-map-marked-alt"></i>
+          <p><%= @instrument.location.capitalize %></p>
+        </div>
+        <div class="instrument-rental">
+          <p class="details-rental"><i class="fas fa-comment-dots"></i>
+          <p><%= @instrument.description %></p>
+        </div>
+        <div class="price-rental">
+          <p class="details-rental price-detail"><strong> <%= @instrument.price_per_day%> €/day</strong></p>
         </div>
 
         <div class="calendar-all">
