@@ -1,0 +1,38 @@
+.instrument-wrapper {
+  min-height: 100vh;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+
+.instrument-detail {
+  height: 400px;
+  width: 650px;
+  position: relative;
+
+  h2 {
+    font-style: $headers-font;
+    font-size: 20px;
+    height: 70px;
+  }
+
+  img {
+    height: 100%;
+    width: 300px;
+  }
+
+  p {
+    color: $our-brown;
+    font-size: 15px;
+  }
+
+  .card-product-infos {
+    padding: 30px;
+  }
+
+  .price-detail{
+    position: absolute;
+    bottom: 50px;
+    right: 263px;
+  }
+}
